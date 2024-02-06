@@ -5,25 +5,32 @@ using UnityEngine;
 
 public class FGameManager : MonoBehaviour
 {
+    public static FGameManager instance { get; private set; }
+
     [SerializeField] private FoodData[] foodDatas;
 
     [Header("[ Game Data ] - No Data Modify!!")]
-    public Food[] foods;
+    [Space(5)]
+    [SerializeField] private Food currentFood;
+    [SerializeField] private Food[] foods;
 
     private void Awake()
     {
+        instance = this;
         StartCoroutine(C_ArrayInit());
     }
 
     private void Start()
     {
-        for (int index = 0; index < foodDatas.Length; index++)
-        {
+        for (int index = 0; index < foodDatas.Length; index++) 
             StartCoroutine(C_FoodInit(index));
-        }
+
+        // First Food Init 
+        currentFood = foods[0];
+        currentFood.foodType = FoodType.CurFood;
     }
 
-    #region Array Init Function
+    #region # Array Init Functions
     private IEnumerator C_ArrayInit()
     {
         // 음식 배열 초기화
@@ -34,9 +41,7 @@ public class FGameManager : MonoBehaviour
         
         // 음식의 재료 배열 초기화
         for (int index = 0; index < foodDatas.Length; index++)
-        {
             foods[index].foodMaterials = new Material[foodDatas[index].foodMaterials.Length];
-        }
     }
 
     private IEnumerator C_FoodInit(int index)

@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Plate
+    uniqueID: 2676652109
+    locked: 0
+  - name: Material
+    uniqueID: 2914176143
+    locked: 0

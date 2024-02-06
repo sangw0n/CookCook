@@ -1,11 +1,11 @@
 public enum FoodType
 {
-    CurFood,
-    NonFood
+    NonFood,
+    CurFood
 }
 
 public enum MaterialType
 {
-    CurMaterial,
-    NonMaterial
+    NonMaterial,
+    CurMaterial
 }
