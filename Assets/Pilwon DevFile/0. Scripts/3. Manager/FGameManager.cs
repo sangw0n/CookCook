@@ -18,7 +18,8 @@ public class FGameManager : MonoBehaviour
     [Space(5)]
     [ReadOnly(true)] public int foodIndex = 0;
     [ReadOnly(true)] public int materialIndex = 0;
-    [SerializeField] private GameObject mainPlate;
+    public GameObject mainPlate;
+
 
     private void Awake()
     {

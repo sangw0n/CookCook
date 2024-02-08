@@ -20,7 +20,7 @@ public class TouchManager : MonoBehaviour
 
             if(hit.collider != null && hit.collider.CompareTag("SubPlate"))
             {
-                hit.collider.gameObject.AddComponent<TouchPlate>();
+                hit.collider.gameObject.AddComponent<TouchPlate>(); 
             }
         }
     }
