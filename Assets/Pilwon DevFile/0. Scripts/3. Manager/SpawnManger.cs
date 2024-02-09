@@ -9,6 +9,7 @@ public class SpawnManger : MonoBehaviour
     [SerializeField] private GameObject spawnPrefab;
     [SerializeField] private float spawnTime;
 
+    [Space(5)]
     [SerializeField] private int definiteSpawnCount = 0; // 필요한 재료 확정 소환 숫자
     [SerializeField] private int curDefiniteSpawnCount = 0; // 필요한 재료 확정 소환 숫자
 
@@ -27,10 +28,11 @@ public class SpawnManger : MonoBehaviour
 
     private IEnumerator Spawner()
     {
-        while (!GameManager.instance.isGameOver) 
+        while (!GameManager.instance.isGameEnd) 
         {
             int rSpawnIndex = Random.Range(0, spawnPoint.Length);
             GameObject clone = Instantiate(spawnPrefab, spawnPoint[rSpawnIndex].position, Quaternion.identity);
+            clone.transform.SetParent(GameManager.instance.plateSpawnParent);
             SubPlate subPlate = clone.GetComponent<SubPlate>();
 
             // Move DirVec Init

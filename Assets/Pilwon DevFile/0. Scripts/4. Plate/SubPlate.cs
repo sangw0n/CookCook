@@ -41,11 +41,17 @@ public class SubPlate : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D trigger)
     {
         MainPlate mainPlate = trigger.GetComponent<MainPlate>();
+        FGameManager fGameManager = FGameManager.instance;
 
         if (trigger.CompareTag("MainPlate"))
         {
             if (mainPlate.foodMaterial.materialName == materialName)
             {
+                mainPlate.foodMaterial.materialCount--;
+                if(mainPlate.foodMaterial.materialCount <= 0)
+                {
+                    fGameManager.MaterialInit();
+                }
                 Debug.Log("¼º°ø");
             }
             else

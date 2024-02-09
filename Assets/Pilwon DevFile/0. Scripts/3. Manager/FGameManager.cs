@@ -35,6 +35,7 @@ public class FGameManager : MonoBehaviour
             C_FoodInit(index);
 
         FoodInit();
+        Debug.Log(currentFood.foodMaterials.Length);
     }
 
     #region # Array Init Functions
@@ -69,6 +70,31 @@ public class FGameManager : MonoBehaviour
         currentFood.foodType = FoodType.CurFood;
 
         MainPlate _mainPlate = mainPlate.GetComponent<MainPlate>();
-        _mainPlate.Init(currentFood.foodName, currentFood.foodType, currentFood.foodMaterials[foodIndex]);
+        _mainPlate.Init(currentFood.foodName, currentFood.foodType, currentFood.foodSprite, currentFood.foodMaterials[materialIndex]);
+    }
+
+    public void MaterialInit()
+    {
+        // 재료가 남아있으면 재료설정
+        if (materialIndex < currentFood.foodMaterials.Length - 1)
+        {
+            materialIndex++;
+            MainPlate _mainPlate = mainPlate.GetComponent<MainPlate>();
+            _mainPlate.MaterialInit(currentFood.foodMaterials[materialIndex]);
+        }
+        // 재료가 끝났으면 음식설정
+        else
+        {
+            materialIndex = 0;
+            // 음식까지 다 끝났으면
+            if (foodIndex == foods.Length - 1)
+            {
+                GameManager.instance.isGameEnd = true;
+                GameManager.instance.plateSpawnParent.gameObject.SetActive(false);
+                return;
+            }
+            foodIndex++;
+            FoodInit();
+        }
     }
 }
