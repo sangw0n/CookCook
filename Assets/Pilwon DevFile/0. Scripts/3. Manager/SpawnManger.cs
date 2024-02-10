@@ -47,7 +47,7 @@ public class SpawnManger : MonoBehaviour
                     curDefiniteSpawnCount = 0;
                     definiteSpawnCount = Random.Range(2, 4);
                     var material = FGameManager.instance.currentFood.foodMaterials[FGameManager.instance.materialIndex];
-                    subPlate.Init(material.materialName, material.materialType, material.materialSprite);
+                    subPlate.Init(material.materialName, material.materialSprite);
                 }
                 else
                 {
@@ -58,7 +58,7 @@ public class SpawnManger : MonoBehaviour
                     // 콩나물이 등장하면 천장 초기화
                     if (material.materialName == FGameManager.instance.currentFood.foodMaterials[FGameManager.instance.materialIndex].materialName)
                         curDefiniteSpawnCount = 0;
-                    subPlate.Init(material.materialName, material.materialType, material.materialSprite);
+                    subPlate.Init(material.materialName, material.materialSprite);
                 }
             }
 

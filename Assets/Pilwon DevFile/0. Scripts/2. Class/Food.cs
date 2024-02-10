@@ -5,8 +5,9 @@ using UnityEngine;
 public class Food
 {
     public string foodName;
-    public FoodType foodType;
     public Sprite foodSprite;
+    public int foodComplete;
+    public float timer;
 
     [Space(10)] public Material[] foodMaterials;
 }

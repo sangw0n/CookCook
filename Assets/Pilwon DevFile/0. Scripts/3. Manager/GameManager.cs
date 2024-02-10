@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
     public int gameHp;
     public Transform plateSpawnParent;
     public Ease ease;
+    public TMP_Text timerText;
 
     [Header("[ # Timer Var ]")]
     public float waitFoodTime;
@@ -17,6 +19,7 @@ public class GameManager : MonoBehaviour
     [Header("[ # Bool Var ]")]
     public bool isGameEnd = false;
     public bool isFoodComplete = false;
+    public bool isTimeOver = false;
 
     private WaitForSeconds waitForSeconds;
 
@@ -35,6 +38,8 @@ public class GameManager : MonoBehaviour
         isFoodComplete = true;
         yield return waitForSeconds;
         isFoodComplete = false;
+        isTimeOver = false;
+        FGameManager.instance.FoodInit();
     }
 }
 

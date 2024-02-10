@@ -25,10 +25,9 @@ public class SubPlate : MonoBehaviour
         rigid.velocity = dirVec * moveSpeed * Time.fixedDeltaTime;
     }
 
-    public void Init(string name, MaterialType type, Sprite sprite)
+    public void Init(string name, Sprite sprite)
     {
         this.materialName = name;
-        this.materialType = type;
         materialSpriteRdr.sprite = sprite;
     }
 
@@ -50,13 +49,22 @@ public class SubPlate : MonoBehaviour
                 mainPlate.foodMaterial.materialCount--;
                 if(mainPlate.foodMaterial.materialCount <= 0)
                 {
+                    // 요리 완성도
+                    float maxAlpha = 1.0f; // 최대 투명도
+                    float minAlpha = 0.2f; // 최소 투명도
+                    float increment = (maxAlpha - minAlpha) / (fGameManager.currentFood.foodMaterials.Length - 1); // 재료를 획득할 때마다 증가할 투명도 값
+
+                    float alpha = minAlpha + increment * fGameManager.materialIndex;
+                    alpha = Mathf.Clamp(alpha, minAlpha, maxAlpha); // 투명도가 minAlpha와 maxAlpha 사이에 머무르도록 클램핑
+                    mainPlate.spriteRdr.color = new Color(1f, 1f, 1f, alpha);
+
                     fGameManager.MaterialInit();
                 }
                 Debug.Log("성공");
             }
             else
             {
-                GameManager.instance.gameHp--;
+                mainPlate.foodComplete--;
                 Debug.Log("실패");
             }
             Destroy(gameObject);

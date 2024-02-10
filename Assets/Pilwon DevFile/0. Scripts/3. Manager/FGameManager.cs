@@ -16,8 +16,8 @@ public class FGameManager : MonoBehaviour
     [SerializeField] private Food[] foods;
 
     [Space(5)]
-    [ReadOnly(true)] public int foodIndex = 0;
-    [ReadOnly(true)] public int materialIndex = 0;
+    public  int foodIndex = 0;
+    public int materialIndex = 0;
     public GameObject mainPlate;
 
 
@@ -38,13 +38,19 @@ public class FGameManager : MonoBehaviour
         Debug.Log(currentFood.foodMaterials.Length);
     }
 
+    private void Update()
+    {
+        Timer();
+    }
+
     #region # Array Init Functions
     private void C_FoodInit(int index)
     {
         foods[index] = new Food();
         foods[index].foodName = foodDatas[index].foodName;
-        foods[index].foodType = foodDatas[index].foodType;
         foods[index].foodSprite = foodDatas[index].foodSprite;
+        foods[index].foodComplete = foodDatas[index].foodComplete;
+        foods[index].timer = foodDatas[index].timer;
 
         MaterialInit(index);
     }
@@ -57,20 +63,32 @@ public class FGameManager : MonoBehaviour
         {
             foods[index].foodMaterials[index2] = new Material();
             foods[index].foodMaterials[index2].materialName = foodDatas[index].foodMaterials[index2].materialName;
-            foods[index].foodMaterials[index2].materialType = foodDatas[index].foodMaterials[index2].materialType;
             foods[index].foodMaterials[index2].materialSprite = foodDatas[index].foodMaterials[index2].materialSprite;
             foods[index].foodMaterials[index2].materialCount = foodDatas[index].foodMaterials[index2].materialCount;
         }
     }
     #endregion
 
+    private void Timer()
+    {
+        if (GameManager.instance.isTimeOver) return;
+
+        float timer = Mathf.Max(Mathf.FloorToInt(currentFood.timer -= Time.deltaTime), 0);
+        GameManager.instance.timerText.text = timer.ToString();
+        if(currentFood.timer <= 0)
+        {
+            GameManager.instance.isTimeOver = true;
+            NextRecipeInit();
+        }
+    }
+
+    #region Cook Init Function
     public void FoodInit()
     {
         currentFood = foods[foodIndex];
-        currentFood.foodType = FoodType.CurFood;
 
         MainPlate _mainPlate = mainPlate.GetComponent<MainPlate>();
-        _mainPlate.Init(currentFood.foodName, currentFood.foodType, currentFood.foodSprite, currentFood.foodMaterials[materialIndex]);
+        _mainPlate.Init(currentFood.foodName, currentFood.foodSprite, currentFood.foodComplete, currentFood.timer, currentFood.foodMaterials[materialIndex]);
     }
 
     public void MaterialInit()
@@ -85,23 +103,27 @@ public class FGameManager : MonoBehaviour
         // 재료가 끝났으면 음식설정
         else
         {
-            materialIndex = 0;
-            // 음식까지 다 끝났으면
-            if (foodIndex == foods.Length - 1)
-            {
-                GameManager.instance.isGameEnd = true;
-                GameManager.instance.plateSpawnParent.gameObject.SetActive(false);
-                return;
-            }
-            foodIndex++;
-            // 음식 완성되면 대기
-            StartCoroutine(GameManager.instance.WaitFoodGame());
-            foreach (var item in GameManager.instance.plateSpawnParent.GetComponentsInChildren<SubPlate>())
-            {
-                Destroy(item.gameObject);
-            }
-            
-            FoodInit();
+            NextRecipeInit();
         }
     }
+
+    public void NextRecipeInit()
+    {
+        materialIndex = 0;
+        // 음식까지 다 끝났으면
+        if (foodIndex == foods.Length - 1)
+        {
+            GameManager.instance.isGameEnd = true;
+            GameManager.instance.plateSpawnParent.gameObject.SetActive(false);
+            return;
+        }
+        foodIndex++;
+        // 음식 완성되면 대기
+        foreach (var item in GameManager.instance.plateSpawnParent.GetComponentsInChildren<SubPlate>())
+        {
+            Destroy(item.gameObject);
+        }
+        StartCoroutine(GameManager.instance.WaitFoodGame());
+    }
+    #endregion
 }
