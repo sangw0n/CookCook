@@ -94,6 +94,13 @@ public class FGameManager : MonoBehaviour
                 return;
             }
             foodIndex++;
+            // 음식 완성되면 대기
+            StartCoroutine(GameManager.instance.WaitFoodGame());
+            foreach (var item in GameManager.instance.plateSpawnParent.GetComponentsInChildren<SubPlate>())
+            {
+                Destroy(item.gameObject);
+            }
+            
             FoodInit();
         }
     }

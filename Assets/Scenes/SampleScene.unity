@@ -170,7 +170,9 @@ MonoBehaviour:
   gameHp: 5
   plateSpawnParent: {fileID: 473455742}
   ease: 6
+  waitFoodTime: 1.5
   isGameEnd: 0
+  isFoodComplete: 1
 --- !u!1 &398985021
 GameObject:
   m_ObjectHideFlags: 0
