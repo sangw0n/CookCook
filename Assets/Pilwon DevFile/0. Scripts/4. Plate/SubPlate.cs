@@ -5,9 +5,11 @@ using UnityEngine;
 public class SubPlate : MonoBehaviour
 {
     [Header("[ Plate Info ]")]
-    [SerializeField] private string materialName;
-
+    public string materialName;
     [Space(5), SerializeField] private float moveSpeed;
+    public Transform particleSpawnPos;
+    public GameObject particle;
+
     private Vector3 dirVec;
 
     private SpriteRenderer materialSpriteRdr;
@@ -17,6 +19,12 @@ public class SubPlate : MonoBehaviour
     {
         materialSpriteRdr = GetComponentsInChildren<SpriteRenderer>()[1];
         rigid = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        if (materialName != FGameManager.instance.currentFood.foodMaterials[FGameManager.instance.materialIndex].materialName)
+            Destroy(particle);
     }
 
     private void FixedUpdate()

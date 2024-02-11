@@ -60,6 +60,14 @@ public class SpawnManger : MonoBehaviour
                         curDefiniteSpawnCount = 0;
                     subPlate.Init(material.materialName, material.materialSprite);
                 }
+
+                // Particle 
+                if(subPlate.materialName == FGameManager.instance.currentFood.foodMaterials[FGameManager.instance.materialIndex].materialName)
+                {
+                    GameObject cloneParticle = Instantiate(GameManager.instance.sparkleParticle, subPlate.particleSpawnPos.position, Quaternion.identity);
+                    cloneParticle.transform.SetParent(clone.transform);
+                    subPlate.particle = cloneParticle;
+                }
             }
 
             yield return waitForSeconds;

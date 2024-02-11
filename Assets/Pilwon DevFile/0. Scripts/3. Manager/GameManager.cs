@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [Header("[ # Effect GameObject ]")]
     public GameObject goodParticle;
     public GameObject badParticle;
+    public GameObject sparkleParticle;
     public Transform particleSpawnPos;
 
     [Header("[ # Dotween Var ]")]

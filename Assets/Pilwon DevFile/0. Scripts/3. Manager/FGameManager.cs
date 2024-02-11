@@ -35,7 +35,6 @@ public class FGameManager : MonoBehaviour
             C_FoodInit(index);
 
         FoodInit();
-        Debug.Log(currentFood.foodMaterials.Length);
     }
 
     private void Update()
