@@ -15,6 +15,11 @@ public class GameManager : MonoBehaviour
     public Character animCharacter;
     public OriginCharacter originCharacter;
 
+    [Header("[ # Effect GameObject ]")]
+    public GameObject goodParticle;
+    public GameObject badParticle;
+    public Transform particleSpawnPos;
+
     [Header("[ # Dotween Var ]")]
     public Ease ease;
 

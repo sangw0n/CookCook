@@ -39,6 +39,7 @@ public class SubPlate : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D trigger)
     {
         FGameManager fGameManager = FGameManager.instance;
+        GameManager gameManager = GameManager.instance;
 
         if (trigger.CompareTag("MainPlate"))
         {
@@ -58,9 +59,15 @@ public class SubPlate : MonoBehaviour
 
                     fGameManager.MaterialInit();
                 }
+
+                // Particle Instantiate
+                GameObject clone = Instantiate(gameManager.goodParticle, gameManager.particleSpawnPos.position, Quaternion.identity);
+                clone.transform.SetParent(gameManager.particleSpawnPos);
             }
             else
             {
+                GameObject clone = Instantiate(gameManager.badParticle, gameManager.particleSpawnPos.position, Quaternion.identity);
+                clone.transform.SetParent(gameManager.particleSpawnPos);
                 fGameManager.mainPlate.foodComplete--;
             }
             Destroy(gameObject);
