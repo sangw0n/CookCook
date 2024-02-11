@@ -32,41 +32,44 @@ public class SpawnManger : MonoBehaviour
         {
             if(!GameManager.instance.isFoodComplete)
             {
-                int rSpawnIndex = Random.Range(0, spawnPoint.Length);
-                GameObject clone = Instantiate(spawnPrefab, spawnPoint[rSpawnIndex].position, Quaternion.identity);
-                clone.transform.SetParent(GameManager.instance.plateSpawnParent);
-                SubPlate subPlate = clone.GetComponent<SubPlate>();
-
-                // Move DirVec Init
-                if (rSpawnIndex == 0) subPlate.MoveDirVec(Vector3.right);
-                else subPlate.MoveDirVec(Vector3.left);
-
-                // Plate Info Init
-                if (curDefiniteSpawnCount >= definiteSpawnCount)
+                if(!GameManager.instance.isPause)
                 {
-                    curDefiniteSpawnCount = 0;
-                    definiteSpawnCount = Random.Range(2, 4);
-                    var material = FGameManager.instance.currentFood.foodMaterials[FGameManager.instance.materialIndex];
-                    subPlate.Init(material.materialName, material.materialSprite);
-                }
-                else
-                {
-                    curDefiniteSpawnCount++;
-                    int ranMaterial = Random.Range(0, FGameManager.instance.currentFood.foodMaterials.Length);
-                    var material = FGameManager.instance.currentFood.foodMaterials[ranMaterial];
+                    int rSpawnIndex = Random.Range(0, spawnPoint.Length);
+                    GameObject clone = Instantiate(spawnPrefab, spawnPoint[rSpawnIndex].position, Quaternion.identity);
+                    clone.transform.SetParent(GameManager.instance.plateSpawnParent);
+                    SubPlate subPlate = clone.GetComponent<SubPlate>();
 
-                    // 콩나물이 등장하면 천장 초기화
-                    if (material.materialName == FGameManager.instance.currentFood.foodMaterials[FGameManager.instance.materialIndex].materialName)
+                    // Move DirVec Init
+                    if (rSpawnIndex == 0) subPlate.MoveDirVec(Vector3.right);
+                    else subPlate.MoveDirVec(Vector3.left);
+
+                    // Plate Info Init
+                    if (curDefiniteSpawnCount >= definiteSpawnCount)
+                    {
                         curDefiniteSpawnCount = 0;
-                    subPlate.Init(material.materialName, material.materialSprite);
-                }
+                        definiteSpawnCount = Random.Range(2, 4);
+                        var material = FGameManager.instance.currentFood.foodMaterials[FGameManager.instance.materialIndex];
+                        subPlate.Init(material.materialName, material.materialSprite);
+                    }
+                    else
+                    {
+                        curDefiniteSpawnCount++;
+                        int ranMaterial = Random.Range(0, FGameManager.instance.currentFood.foodMaterials.Length);
+                        var material = FGameManager.instance.currentFood.foodMaterials[ranMaterial];
 
-                // Particle 
-                if(subPlate.materialName == FGameManager.instance.currentFood.foodMaterials[FGameManager.instance.materialIndex].materialName)
-                {
-                    GameObject cloneParticle = Instantiate(GameManager.instance.sparkleParticle, subPlate.particleSpawnPos.position, Quaternion.identity);
-                    cloneParticle.transform.SetParent(clone.transform);
-                    subPlate.particle = cloneParticle;
+                        // 콩나물이 등장하면 천장 초기화
+                        if (material.materialName == FGameManager.instance.currentFood.foodMaterials[FGameManager.instance.materialIndex].materialName)
+                            curDefiniteSpawnCount = 0;
+                        subPlate.Init(material.materialName, material.materialSprite);
+                    }
+
+                    // Particle 
+                    if (subPlate.materialName == FGameManager.instance.currentFood.foodMaterials[FGameManager.instance.materialIndex].materialName)
+                    {
+                        GameObject cloneParticle = Instantiate(GameManager.instance.sparkleParticle, subPlate.particleSpawnPos.position, Quaternion.identity);
+                        cloneParticle.transform.SetParent(clone.transform);
+                        subPlate.particle = cloneParticle;
+                    }
                 }
             }
 

@@ -30,7 +30,10 @@ public class Character : MonoBehaviour
         {
             if(!GameManager.instance.isFoodComplete)
             {
-                anim.SetTrigger("Blink");
+                if(!GameManager.instance.isPause)
+                {
+                    anim.SetTrigger("Blink");
+                }
             }
             yield return waitForSeconds;
         }

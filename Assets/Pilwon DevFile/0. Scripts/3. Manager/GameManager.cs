@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     public bool isGameEnd = false;
     public bool isFoodComplete = false;
     public bool isTimeOver = false;
+    public bool isPause = false;
 
     private WaitForSeconds waitForSeconds;
 

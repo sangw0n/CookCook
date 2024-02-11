@@ -6,7 +6,10 @@ public class SubPlate : MonoBehaviour
 {
     [Header("[ Plate Info ]")]
     public string materialName;
-    [Space(5), SerializeField] private float moveSpeed;
+    [Space(5)]
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float originMoveSpeed;
+
     public Transform particleSpawnPos;
     public GameObject particle;
 
@@ -21,6 +24,11 @@ public class SubPlate : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
     }
 
+    private void Start()
+    {
+        originMoveSpeed = moveSpeed;
+    }
+
     private void Update()
     {
         if (materialName != FGameManager.instance.currentFood.foodMaterials[FGameManager.instance.materialIndex].materialName)
@@ -29,6 +37,9 @@ public class SubPlate : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (GameManager.instance.isPause) moveSpeed = 0;
+        else moveSpeed = originMoveSpeed;
+        
         rigid.velocity = dirVec * moveSpeed * Time.fixedDeltaTime;
     }
 

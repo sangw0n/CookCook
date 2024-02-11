@@ -149,7 +149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialName: 
-  moveSpeed: 510
+  moveSpeed: 550
+  originMoveSpeed: 0
   particleSpawnPos: {fileID: 5592633963800919913}
   particle: {fileID: 0}
 --- !u!1 &7645581451296131201

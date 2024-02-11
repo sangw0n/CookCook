@@ -39,6 +39,7 @@ public class FGameManager : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.instance.isPause) return;
         Timer();
     }
 
