@@ -18,7 +18,7 @@ public class FGameManager : MonoBehaviour
     [Space(5)]
     public  int foodIndex = 0;
     public int materialIndex = 0;
-    public GameObject mainPlate;
+    public  MainPlate mainPlate;
 
 
     private void Awake()
@@ -69,19 +69,6 @@ public class FGameManager : MonoBehaviour
     }
     #endregion
 
-    private void Timer()
-    {
-        if (GameManager.instance.isTimeOver) return;
-
-        float timer = Mathf.Max(Mathf.FloorToInt(currentFood.timer -= Time.deltaTime), 0);
-        GameManager.instance.timerText.text = timer.ToString();
-        if(currentFood.timer <= 0)
-        {
-            GameManager.instance.isTimeOver = true;
-            NextRecipeInit();
-        }
-    }
-
     #region Cook Init Function
     public void FoodInit()
     {
@@ -110,7 +97,6 @@ public class FGameManager : MonoBehaviour
     public void NextRecipeInit()
     {
         materialIndex = 0;
-        // 음식까지 다 끝났으면
         if (foodIndex == foods.Length - 1)
         {
             GameManager.instance.isGameEnd = true;
@@ -118,7 +104,6 @@ public class FGameManager : MonoBehaviour
             return;
         }
         foodIndex++;
-        // 음식 완성되면 대기
         foreach (var item in GameManager.instance.plateSpawnParent.GetComponentsInChildren<SubPlate>())
         {
             Destroy(item.gameObject);
@@ -126,4 +111,17 @@ public class FGameManager : MonoBehaviour
         StartCoroutine(GameManager.instance.WaitFoodGame());
     }
     #endregion
+
+    private void Timer()
+    {
+        if (GameManager.instance.isTimeOver) return;
+
+        float timer = Mathf.Max(Mathf.FloorToInt(currentFood.timer -= Time.deltaTime), 0);
+        GameManager.instance.timerText.text = timer.ToString();
+        if (currentFood.timer <= 0)
+        {
+            GameManager.instance.isTimeOver = true;
+            NextRecipeInit();
+        }
+    }
 }

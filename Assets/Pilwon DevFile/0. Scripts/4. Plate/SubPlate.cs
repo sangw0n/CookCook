@@ -6,7 +6,6 @@ public class SubPlate : MonoBehaviour
 {
     [Header("[ Plate Info ]")]
     [SerializeField] private string materialName;
-    [SerializeField] private MaterialType materialType;
 
     [Space(5), SerializeField] private float moveSpeed;
     private Vector3 dirVec;
@@ -39,15 +38,14 @@ public class SubPlate : MonoBehaviour
     // Temp Code
     private void OnTriggerEnter2D(Collider2D trigger)
     {
-        MainPlate mainPlate = trigger.GetComponent<MainPlate>();
         FGameManager fGameManager = FGameManager.instance;
 
         if (trigger.CompareTag("MainPlate"))
         {
-            if (mainPlate.foodMaterial.materialName == materialName)
+            if (fGameManager.mainPlate.foodMaterial.materialName == materialName)
             {
-                mainPlate.foodMaterial.materialCount--;
-                if(mainPlate.foodMaterial.materialCount <= 0)
+                fGameManager.mainPlate.foodMaterial.materialCount--;
+                if(fGameManager.mainPlate.foodMaterial.materialCount <= 0)
                 {
                     // 요리 완성도
                     float maxAlpha = 1.0f; // 최대 투명도
@@ -56,16 +54,14 @@ public class SubPlate : MonoBehaviour
 
                     float alpha = minAlpha + increment * fGameManager.materialIndex;
                     alpha = Mathf.Clamp(alpha, minAlpha, maxAlpha); // 투명도가 minAlpha와 maxAlpha 사이에 머무르도록 클램핑
-                    mainPlate.spriteRdr.color = new Color(1f, 1f, 1f, alpha);
+                    fGameManager.mainPlate.spriteRdr.color = new Color(1f, 1f, 1f, alpha);
 
                     fGameManager.MaterialInit();
                 }
-                Debug.Log("성공");
             }
             else
             {
-                mainPlate.foodComplete--;
-                Debug.Log("실패");
+                fGameManager.mainPlate.foodComplete--;
             }
             Destroy(gameObject);
         }

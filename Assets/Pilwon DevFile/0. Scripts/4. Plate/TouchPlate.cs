@@ -8,7 +8,7 @@ public class TouchPlate : MonoBehaviour
     void Start()
     {
         PlateTouch();
-        Destroy(gameObject, 0.5f);
+        Destroy(gameObject, 0.8f);
     }
 
     void PlateTouch()
@@ -18,13 +18,11 @@ public class TouchPlate : MonoBehaviour
         {
             transform.DOMove(new Vector3(25.0f, 6.1f, 0), 0.65f).SetEase(GameManager.instance.ease);
             transform.DORotate(new Vector3(0, 0, -180), 0.75f);
-            Debug.Log("¿À¸¥ÂÊÀ¸·Î ¾±~~");
         }
         else
         {
             transform.DOMove(new Vector3(-25.0f, 6.1f, 0), 0.65f).SetEase(GameManager.instance.ease);
             transform.DORotate(new Vector3(0, 0, 180), 0.75f);
-            Debug.Log("¿ÞÂÊÀ¸·Î ¾±~~");
         }
     }
 }

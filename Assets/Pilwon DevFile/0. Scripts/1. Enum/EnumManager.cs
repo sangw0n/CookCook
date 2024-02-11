@@ -1,11 +1,8 @@
-public enum FoodType
+public enum ECharacterFace
 {
-    NonFood,
-    CurFood
-}
-
-public enum MaterialType
-{
-    NonMaterial,
-    CurMaterial
+    Delicious,
+    Happy,
+    SoSo,
+    Angry,
+    Tasteless
 }

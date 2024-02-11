@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    [SerializeField] private Sprite[] characterFace;
     [SerializeField] private float blinkTime;
 
     private WaitForSeconds waitForSeconds;
 
     private Animator anim;
+    private SpriteRenderer sprite;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
         waitForSeconds = new WaitForSeconds(blinkTime);
     }
 
@@ -25,7 +28,10 @@ public class Character : MonoBehaviour
     {
         while (!GameManager.instance.isGameEnd)
         {
-            anim.SetTrigger("Blink");
+            if(!GameManager.instance.isFoodComplete)
+            {
+                anim.SetTrigger("Blink");
+            }
             yield return waitForSeconds;
         }
     }
