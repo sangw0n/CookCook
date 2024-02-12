@@ -1366,8 +1366,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodDatas:
-  - {fileID: 11400000, guid: 19fbbedff677cea46927d2618e90a1e9, type: 2}
-  - {fileID: 11400000, guid: ea0d5e086ac47dc4fb6824a65da1e929, type: 2}
+  - {fileID: 11400000, guid: e48c584219e132544857f8eaae044044, type: 2}
+  - {fileID: 11400000, guid: fbf437cc83e04cb43babe406e05fe9fe, type: 2}
+  - {fileID: 11400000, guid: 24fe97742614dc04eaf06b9d199809c9, type: 2}
   currentFood:
     foodName: 
     foodSprite: {fileID: 0}
@@ -2836,7 +2837,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.714286, y: 7.142857}
+    oldSize: {x: 5.2173915, y: 6.521739}
     newSize: {x: 5.714286, y: 7.142857}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
