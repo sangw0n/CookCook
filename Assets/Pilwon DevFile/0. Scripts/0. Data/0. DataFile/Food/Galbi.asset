@@ -15,7 +15,7 @@ MonoBehaviour:
   foodName: "\uAC08\uBE44"
   foodSprite: {fileID: 21300000, guid: c6b369ada5fdfeb44ac7d0709f8d947a, type: 3}
   foodComplete: 10
-  timer: 15
+  timer: 30
   foodMaterials:
   - materialName: "\uACE0\uAE30"
     materialSprite: {fileID: 21300000, guid: b4eff55ab463599489307dd6f175c3f9, type: 3}

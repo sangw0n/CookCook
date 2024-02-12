@@ -1269,10 +1269,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 19fbbedff677cea46927d2618e90a1e9, type: 2}
   - {fileID: 11400000, guid: ea0d5e086ac47dc4fb6824a65da1e929, type: 2}
   - {fileID: 11400000, guid: 08807e7d33f849141ab01026e2758141, type: 2}
-  - {fileID: 11400000, guid: 410760a5eccfa404284abf5e73c651e7, type: 2}
-  - {fileID: 11400000, guid: 6a8a45e84c2d503478cacfbf8647df7a, type: 2}
   - {fileID: 11400000, guid: 24fe97742614dc04eaf06b9d199809c9, type: 2}
+  - {fileID: 11400000, guid: 410760a5eccfa404284abf5e73c651e7, type: 2}
   - {fileID: 11400000, guid: e48c584219e132544857f8eaae044044, type: 2}
+  - {fileID: 11400000, guid: 6a8a45e84c2d503478cacfbf8647df7a, type: 2}
   - {fileID: 11400000, guid: fbf437cc83e04cb43babe406e05fe9fe, type: 2}
   currentFood:
     foodName: 

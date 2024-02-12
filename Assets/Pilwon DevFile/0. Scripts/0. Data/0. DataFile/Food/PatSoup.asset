@@ -15,11 +15,14 @@ MonoBehaviour:
   foodName: "\uD325\uC8FD"
   foodSprite: {fileID: 21300000, guid: c9cb84593d3704243b616e858a236850, type: 3}
   foodComplete: 10
-  timer: 15
+  timer: 30
   foodMaterials:
   - materialName: "\uD325"
     materialSprite: {fileID: 21300000, guid: b4eff55ab463599489307dd6f175c3f9, type: 3}
-    materialCount: 3
+    materialCount: 2
   - materialName: "\uB5A1"
     materialSprite: {fileID: 21300000, guid: 67703a85f9c1ed747a72c42fc7a6009c, type: 3}
-    materialCount: 3
+    materialCount: 2
+  - materialName: "\uAC10\uC790"
+    materialSprite: {fileID: 21300000, guid: d0e262647459d45438ee6dbb93cbcef9, type: 3}
+    materialCount: 2
