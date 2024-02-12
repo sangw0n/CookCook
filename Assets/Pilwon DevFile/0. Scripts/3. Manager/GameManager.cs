@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance { get; private set; }
 
     public int gameHp;
+    public int completeFoodCount; // 음식 완성 수 
 
     [Header("[ # GameObject ]")]
     public Transform plateSpawnParent;
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour
     {
         isFoodComplete = true; // 음식이 완성되면 재료 소환이 안됨
         Face(); // 캐릭터 표정 설정
+
         yield return waitForSeconds;
         isFoodComplete = false;
         isTimeOver = false;
@@ -62,19 +64,26 @@ public class GameManager : MonoBehaviour
         var foodComplete = FGameManager.instance.mainPlate.foodComplete;
 
         StartCoroutine(CharacterSetActive());
-        if (foodComplete >= 9) originCharacter.FaceSpriteInit(ECharacterFace.Delicious);
-        else if (foodComplete >= 7) originCharacter.FaceSpriteInit(ECharacterFace.Happy);
-        else if (foodComplete >= 5) originCharacter.FaceSpriteInit(ECharacterFace.SoSo);
-        else if (foodComplete >= 3) originCharacter.FaceSpriteInit(ECharacterFace.Angry);
-        else originCharacter.FaceSpriteInit(ECharacterFace.Tasteless);
+        if(!isTimeOver)
+        {
+            if (foodComplete >= 9) originCharacter.FaceSpriteInit(ECharacterFace.Delicious);
+            else if (foodComplete >= 7) originCharacter.FaceSpriteInit(ECharacterFace.Happy);
+            else if (foodComplete >= 5) originCharacter.FaceSpriteInit(ECharacterFace.SoSo);
+            else if (foodComplete >= 3) originCharacter.FaceSpriteInit(ECharacterFace.Angry);
+            else originCharacter.FaceSpriteInit(ECharacterFace.Tasteless);
+        }
+        else
+        {
+            originCharacter.FaceSpriteInit(ECharacterFace.Tasteless);
+        }
     }
 
     private IEnumerator CharacterSetActive()
     {
-        animCharacter.gameObject.SetActive(false);
+        animCharacter.sprite.color = new Color32(255, 255, 255, 0);
         originCharacter.gameObject.SetActive(true);
         yield return waitForSeconds;
-        animCharacter.gameObject.SetActive(true);
+        animCharacter.sprite.color = new Color32(255, 255, 255, 255);
         originCharacter.gameObject.SetActive(false);
     }
     #endregion

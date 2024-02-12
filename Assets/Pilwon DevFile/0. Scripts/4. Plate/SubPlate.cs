@@ -39,7 +39,7 @@ public class SubPlate : MonoBehaviour
     {
         if (GameManager.instance.isPause) moveSpeed = 0;
         else moveSpeed = originMoveSpeed;
-        
+
         rigid.velocity = dirVec * moveSpeed * Time.fixedDeltaTime;
     }
 
@@ -65,7 +65,7 @@ public class SubPlate : MonoBehaviour
             if (fGameManager.mainPlate.foodMaterial.materialName == materialName)
             {
                 fGameManager.mainPlate.foodMaterial.materialCount--;
-                if(fGameManager.mainPlate.foodMaterial.materialCount <= 0)
+                if (fGameManager.mainPlate.foodMaterial.materialCount <= 0)
                 {
                     // 요리 완성도
                     float maxAlpha = 1.0f; // 최대 투명도

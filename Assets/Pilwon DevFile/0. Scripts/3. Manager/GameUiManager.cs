@@ -1,11 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameUiManager : MonoBehaviour
 {
+    public static GameUiManager instance { get; private set; }
+
     [SerializeField] private GameObject menuPanel;
+    public GameObject gameEndPanel;
+    public TMP_Text nextStageText;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     public void MenuButton()
     {
@@ -27,6 +37,6 @@ public class GameUiManager : MonoBehaviour
 
     public void HomeButton()
     {
-        Debug.Log("메인메뉴로 이동~~");
+        SceneManager.LoadScene("Main Menu");
     }
 }

@@ -16,9 +16,9 @@ public class FGameManager : MonoBehaviour
     [SerializeField] private Food[] foods;
 
     [Space(5)]
-    public  int foodIndex = 0;
+    public int foodIndex = 0;
     public int materialIndex = 0;
-    public  MainPlate mainPlate;
+    public MainPlate mainPlate;
 
 
     private void Awake()
@@ -90,6 +90,7 @@ public class FGameManager : MonoBehaviour
         // 재료가 끝났으면 음식설정
         else
         {
+            GameManager.instance.completeFoodCount++;
             NextRecipeInit();
         }
     }
@@ -99,8 +100,7 @@ public class FGameManager : MonoBehaviour
         materialIndex = 0;
         if (foodIndex == foods.Length - 1)
         {
-            GameManager.instance.isGameEnd = true;
-            GameManager.instance.plateSpawnParent.gameObject.SetActive(false);
+            StartCoroutine(GameEnd());
             return;
         }
         foodIndex++;
@@ -109,6 +109,26 @@ public class FGameManager : MonoBehaviour
             Destroy(item.gameObject);
         }
         StartCoroutine(GameManager.instance.WaitFoodGame());
+    }
+
+    public IEnumerator GameEnd()
+    {
+        GameManager.instance.Face();
+        GameManager.instance.isGameEnd = true;
+        GameManager.instance.plateSpawnParent.gameObject.SetActive(false);
+
+        yield return new WaitForSeconds(1.5f); 
+        // 스테이지 클리어 조건
+        if (GameManager.instance.completeFoodCount >= Mathf.FloorToInt(currentFood.foodMaterials.Length / 2))
+        {
+            // 만든 스테이지 수를 넘어가면 리턴시킴
+            if (StageManager.instance.clickStageIndex + 1 < StageManager.instance.stageButtons.Length)
+            {
+                StageManager.instance.StageClear(StageManager.instance.clickStageIndex + 1);
+                GameUiManager.instance.nextStageText.gameObject.SetActive(true);
+            }
+        }
+        GameUiManager.instance.gameEndPanel.SetActive(true);
     }
     #endregion
 

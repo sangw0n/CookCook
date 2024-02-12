@@ -10,7 +10,7 @@ public class Character : MonoBehaviour
     private WaitForSeconds waitForSeconds;
 
     private Animator anim;
-    private SpriteRenderer sprite;
+    public SpriteRenderer sprite;
 
     private void Awake()
     {
@@ -28,7 +28,6 @@ public class Character : MonoBehaviour
     {
         while (!GameManager.instance.isGameEnd)
         {
-            if(!GameManager.instance.isFoodComplete)
             {
                 if(!GameManager.instance.isPause)
                 {
