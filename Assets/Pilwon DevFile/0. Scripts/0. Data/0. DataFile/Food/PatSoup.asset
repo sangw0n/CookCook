@@ -18,7 +18,7 @@ MonoBehaviour:
   timer: 30
   foodMaterials:
   - materialName: "\uD325"
-    materialSprite: {fileID: 21300000, guid: b4eff55ab463599489307dd6f175c3f9, type: 3}
+    materialSprite: {fileID: 21300000, guid: bf0e729c885489542894a48c5e23e3ad, type: 3}
     materialCount: 2
   - materialName: "\uB5A1"
     materialSprite: {fileID: 21300000, guid: 67703a85f9c1ed747a72c42fc7a6009c, type: 3}

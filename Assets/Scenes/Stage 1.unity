@@ -1366,8 +1366,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodDatas:
-  - {fileID: 11400000, guid: 19fbbedff677cea46927d2618e90a1e9, type: 2}
+  - {fileID: 11400000, guid: 410760a5eccfa404284abf5e73c651e7, type: 2}
   - {fileID: 11400000, guid: ea0d5e086ac47dc4fb6824a65da1e929, type: 2}
+  - {fileID: 11400000, guid: 19fbbedff677cea46927d2618e90a1e9, type: 2}
+  - {fileID: 11400000, guid: 08807e7d33f849141ab01026e2758141, type: 2}
+  - {fileID: 11400000, guid: 6a8a45e84c2d503478cacfbf8647df7a, type: 2}
   currentFood:
     foodName: 
     foodSprite: {fileID: 0}
@@ -2887,7 +2890,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 58d9242d6fdba5a44b1a8de3e04dd10b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.2}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.3137255}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

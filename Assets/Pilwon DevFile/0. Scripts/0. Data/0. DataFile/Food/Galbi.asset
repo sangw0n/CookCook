@@ -18,11 +18,11 @@ MonoBehaviour:
   timer: 30
   foodMaterials:
   - materialName: "\uACE0\uAE30"
-    materialSprite: {fileID: 21300000, guid: b4eff55ab463599489307dd6f175c3f9, type: 3}
+    materialSprite: {fileID: 21300000, guid: 695efd8e4fb6a5f4bb4ff915f5e75ee9, type: 3}
     materialCount: 2
   - materialName: "\uBC84\uC12F"
-    materialSprite: {fileID: 21300000, guid: 67703a85f9c1ed747a72c42fc7a6009c, type: 3}
+    materialSprite: {fileID: 21300000, guid: 7f4151fa5942df44095674a52d2ddaff, type: 3}
     materialCount: 2
   - materialName: "\uAC10\uC790"
-    materialSprite: {fileID: 21300000, guid: be5d1e4f775da1c4992ecf11c8073cbc, type: 3}
+    materialSprite: {fileID: 21300000, guid: d0e262647459d45438ee6dbb93cbcef9, type: 3}
     materialCount: 2
