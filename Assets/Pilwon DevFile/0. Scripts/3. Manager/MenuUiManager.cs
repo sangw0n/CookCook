@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuUiManager : MonoBehaviour
 {
@@ -30,4 +31,11 @@ public class MenuUiManager : MonoBehaviour
         StagePanel.transform.DOLocalMove(movePos, 0.1f);
         mainMenuPanel.SetActive(true);
     }
+
+    public void StageEnter(int index)
+    {
+        SceneManager.LoadScene("Stage " + index);
+        StageManager.instance.clickStageIndex = index;
+    }
+
 }

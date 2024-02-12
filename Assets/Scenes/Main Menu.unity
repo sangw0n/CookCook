@@ -349,8 +349,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1886763503}
-        m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
+      - m_Target: {fileID: 1465842282}
+        m_TargetAssemblyTypeName: MenuUiManager, Assembly-CSharp
         m_MethodName: StageEnter
         m_Mode: 3
         m_Arguments:
@@ -1188,8 +1188,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1886763503}
-        m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
+      - m_Target: {fileID: 1465842282}
+        m_TargetAssemblyTypeName: MenuUiManager, Assembly-CSharp
         m_MethodName: StageEnter
         m_Mode: 3
         m_Arguments:

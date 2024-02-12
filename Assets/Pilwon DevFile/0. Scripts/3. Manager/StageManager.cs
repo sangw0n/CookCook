@@ -35,12 +35,6 @@ public class StageManager : MonoBehaviour
         }
     }
 
-    public void StageEnter(int index)
-    {
-        SceneManager.LoadScene("Stage " + index);
-        clickStageIndex = index;
-    }
-
     public void StageClear(int index)
     {
         MenuUiManager.instance.button[index - 1].image.color = new Color32(197, 197, 197, 255);
