@@ -482,6 +482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameHp: 5
+  completeFoodCount: 0
   plateSpawnParent: {fileID: 473455742}
   animCharacter: {fileID: 810808120}
   originCharacter: {fileID: 2091629482}
@@ -1267,6 +1268,12 @@ MonoBehaviour:
   foodDatas:
   - {fileID: 11400000, guid: 19fbbedff677cea46927d2618e90a1e9, type: 2}
   - {fileID: 11400000, guid: ea0d5e086ac47dc4fb6824a65da1e929, type: 2}
+  - {fileID: 11400000, guid: 08807e7d33f849141ab01026e2758141, type: 2}
+  - {fileID: 11400000, guid: 410760a5eccfa404284abf5e73c651e7, type: 2}
+  - {fileID: 11400000, guid: 6a8a45e84c2d503478cacfbf8647df7a, type: 2}
+  - {fileID: 11400000, guid: 24fe97742614dc04eaf06b9d199809c9, type: 2}
+  - {fileID: 11400000, guid: e48c584219e132544857f8eaae044044, type: 2}
+  - {fileID: 11400000, guid: fbf437cc83e04cb43babe406e05fe9fe, type: 2}
   currentFood:
     foodName: 
     foodSprite: {fileID: 0}
@@ -1419,6 +1426,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a4843e63238e6ad4bb0d5497899315e9, type: 3}
   - {fileID: 21300000, guid: a4843e63238e6ad4bb0d5497899315e9, type: 3}
   blinkTime: 1.5
+  sprite: {fileID: 0}
 --- !u!1 &891946814
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,6 +1709,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8039d014ed159c949bffbaffbc673619, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuPanel: {fileID: 0}
+  gameEndPanel: {fileID: 0}
+  nextStageText: {fileID: 0}
 --- !u!1 &1248128394
 GameObject:
   m_ObjectHideFlags: 0

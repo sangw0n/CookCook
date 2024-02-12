@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9a5db1c81f8ca488f8b1b2159d173e, type: 3}
+  m_Name: Galbi
+  m_EditorClassIdentifier: 
+  foodName: "\uAC08\uBE44"
+  foodSprite: {fileID: 21300000, guid: c6b369ada5fdfeb44ac7d0709f8d947a, type: 3}
+  foodComplete: 10
+  timer: 15
+  foodMaterials:
+  - materialName: "\uACE0\uAE30"
+    materialSprite: {fileID: 21300000, guid: b4eff55ab463599489307dd6f175c3f9, type: 3}
+    materialCount: 2
+  - materialName: "\uBC84\uC12F"
+    materialSprite: {fileID: 21300000, guid: 67703a85f9c1ed747a72c42fc7a6009c, type: 3}
+    materialCount: 2
+  - materialName: "\uAC10\uC790"
+    materialSprite: {fileID: 21300000, guid: be5d1e4f775da1c4992ecf11c8073cbc, type: 3}
+    materialCount: 2
