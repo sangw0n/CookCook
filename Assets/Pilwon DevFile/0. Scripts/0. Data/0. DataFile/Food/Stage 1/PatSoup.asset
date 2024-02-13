@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: PatSoup
   m_EditorClassIdentifier: 
   foodName: "\uD325\uC8FD"
-  foodSprite: {fileID: 21300000, guid: c9cb84593d3704243b616e858a236850, type: 3}
+  foodSprite: {fileID: 21300000, guid: 807616d803e288e4094a6767785935ff, type: 3}
   foodComplete: 10
-  timer: 30
+  timer: 24
   foodMaterials:
   - materialName: "\uD325"
     materialSprite: {fileID: 21300000, guid: bf0e729c885489542894a48c5e23e3ad, type: 3}
@@ -25,4 +25,7 @@ MonoBehaviour:
     materialCount: 2
   - materialName: "\uAC10\uC790"
     materialSprite: {fileID: 21300000, guid: d0e262647459d45438ee6dbb93cbcef9, type: 3}
+    materialCount: 2
+  - materialName: "\uBC25"
+    materialSprite: {fileID: 21300000, guid: 6a7763062ff3b39408276bdaa454b5c5, type: 3}
     materialCount: 2

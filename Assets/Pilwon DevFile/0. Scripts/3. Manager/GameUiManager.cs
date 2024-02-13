@@ -12,6 +12,7 @@ public class GameUiManager : MonoBehaviour
     public GameObject gameEndPanel;
     public TMP_Text nextStageText;
 
+
     private void Awake()
     {
         instance = this;

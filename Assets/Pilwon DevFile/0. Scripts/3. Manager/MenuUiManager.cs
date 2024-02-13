@@ -12,6 +12,7 @@ public class MenuUiManager : MonoBehaviour
     [SerializeField] private GameObject mainMenuPanel;
     [SerializeField] private Transform StagePanel;
     public Button[] button;
+    public GameObject[] checkObject;
 
     private void Awake()
     {

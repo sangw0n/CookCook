@@ -13,16 +13,25 @@ MonoBehaviour:
   m_Name: Galbi
   m_EditorClassIdentifier: 
   foodName: "\uAC08\uBE44"
-  foodSprite: {fileID: 21300000, guid: c6b369ada5fdfeb44ac7d0709f8d947a, type: 3}
+  foodSprite: {fileID: 21300000, guid: 2165f7ab1537d1a4b85ba8aecd1198e2, type: 3}
   foodComplete: 10
-  timer: 30
+  timer: 36
   foodMaterials:
   - materialName: "\uACE0\uAE30"
     materialSprite: {fileID: 21300000, guid: 695efd8e4fb6a5f4bb4ff915f5e75ee9, type: 3}
-    materialCount: 2
+    materialCount: 3
   - materialName: "\uBC84\uC12F"
     materialSprite: {fileID: 21300000, guid: 7f4151fa5942df44095674a52d2ddaff, type: 3}
-    materialCount: 2
+    materialCount: 3
   - materialName: "\uAC10\uC790"
     materialSprite: {fileID: 21300000, guid: d0e262647459d45438ee6dbb93cbcef9, type: 3}
     materialCount: 2
+  - materialName: "\uC591\uD30C"
+    materialSprite: {fileID: 21300000, guid: 03a10abf9fd56064e8525346e7a4869f, type: 3}
+    materialCount: 1
+  - materialName: "\uACE0\uCD94"
+    materialSprite: {fileID: 21300000, guid: c15cf7e7c7f2a064b9b6dece4027dff6, type: 3}
+    materialCount: 1
+  - materialName: "\uC639\uC2EC\uC774"
+    materialSprite: {fileID: 21300000, guid: e5a70ed3fef464e4d9ad069a16e846ce, type: 3}
+    materialCount: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Noodles
   m_EditorClassIdentifier: 
   foodName: "\uAD6D\uC218"
-  foodSprite: {fileID: 21300000, guid: 82c17578571e2c241b1398970cac682b, type: 3}
+  foodSprite: {fileID: 21300000, guid: c341d444c11e74a41a7aad088364cd19, type: 3}
   foodComplete: 10
   timer: 30
   foodMaterials:
@@ -22,13 +22,13 @@ MonoBehaviour:
     materialCount: 1
   - materialName: "\uACC4\uB780"
     materialSprite: {fileID: 21300000, guid: 67703a85f9c1ed747a72c42fc7a6009c, type: 3}
-    materialCount: 1
+    materialCount: 2
   - materialName: "\uBA74"
-    materialSprite: {fileID: 21300000, guid: be5d1e4f775da1c4992ecf11c8073cbc, type: 3}
-    materialCount: 1
+    materialSprite: {fileID: 21300000, guid: 5f49fa5305211a44baee62fbab416383, type: 3}
+    materialCount: 2
   - materialName: "\uD638\uBC15"
     materialSprite: {fileID: 21300000, guid: ac0e70ff0992f52459505a91b37e653a, type: 3}
-    materialCount: 1
+    materialCount: 2
   - materialName: "\uAE40"
     materialSprite: {fileID: 21300000, guid: 25baba1da72a3a34082d6934e2de74ea, type: 3}
     materialCount: 1

@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Udon
   m_EditorClassIdentifier: 
   foodName: "\uC6B0\uB3D9"
-  foodSprite: {fileID: 21300000, guid: d7f1c2fd86811f04aa1d3dab394aac81, type: 3}
+  foodSprite: {fileID: 21300000, guid: a7a6f8015ec0467419948c9bd62db67d, type: 3}
   foodComplete: 10
-  timer: 30
+  timer: 20
   foodMaterials:
   - materialName: "\uBA74"
-    materialSprite: {fileID: 21300000, guid: aae810bbfd94cff44b80716e29bb081d, type: 3}
-    materialCount: 2
+    materialSprite: {fileID: 21300000, guid: 5f49fa5305211a44baee62fbab416383, type: 3}
+    materialCount: 3
   - materialName: "\uB2EC\uAC40"
     materialSprite: {fileID: 21300000, guid: fa9f3365f6b66ac4b908b7a996627e80, type: 3}
-    materialCount: 2
+    materialCount: 3
   - materialName: "\uBA78\uCE58"
     materialSprite: {fileID: 21300000, guid: b4eff55ab463599489307dd6f175c3f9, type: 3}
     materialCount: 2

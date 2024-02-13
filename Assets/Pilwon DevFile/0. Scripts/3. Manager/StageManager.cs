@@ -42,5 +42,6 @@ public class StageManager : MonoBehaviour
         text.color = new Color32(255, 255, 255, 255);
 
         MenuUiManager.instance.button[index - 1].interactable = true;
+        stageButtons[index].isClear = true;
     }
 }

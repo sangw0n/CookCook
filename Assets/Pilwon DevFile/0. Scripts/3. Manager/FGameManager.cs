@@ -72,6 +72,8 @@ public class FGameManager : MonoBehaviour
     #region Cook Init Function
     public void FoodInit()
     {
+        if (GameManager.instance.isGameEnd) return;
+
         currentFood = foods[foodIndex];
 
         MainPlate _mainPlate = mainPlate.GetComponent<MainPlate>();
@@ -98,12 +100,13 @@ public class FGameManager : MonoBehaviour
     public void NextRecipeInit()
     {
         materialIndex = 0;
-        if (foodIndex == foods.Length - 1)
+        foodIndex++;
+        if (foodIndex >= foods.Length)
         {
             StartCoroutine(GameEnd());
             return;
         }
-        foodIndex++;
+        if (GameManager.instance.isGameEnd) return;
         foreach (var item in GameManager.instance.plateSpawnParent.GetComponentsInChildren<SubPlate>())
         {
             Destroy(item.gameObject);
@@ -134,6 +137,7 @@ public class FGameManager : MonoBehaviour
 
     private void Timer()
     {
+        if (GameManager.instance.isGameEnd) return;
         if (GameManager.instance.isTimeOver) return;
 
         float timer = Mathf.Max(Mathf.FloorToInt(currentFood.timer -= Time.deltaTime), 0);
