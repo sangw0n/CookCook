@@ -39,4 +39,8 @@ public class MenuUiManager : MonoBehaviour
         StageManager.instance.clickStageIndex = index;
     }
 
+    public void ExitButton()
+    {
+        Application.Quit();
+    }
 }
